@@ -1,0 +1,112 @@
+@use 'mixins';
+@use 'variables' as V;
+
+
+.finish{
+    display: none;
+
+   &__background{
+    position: absolute;
+    background-color: rgba(65, 63, 63, 0.295);
+    width: 100vw;
+    top: 0;
+    left: 0;
+    height: 110vh;
+
+   }
+   &__modal {
+
+    @include mixins.card();
+    margin: 100px auto;
+    width: 20rem;
+    height: 20rem;
+    &__title{
+        color: white;
+        letter-spacing: 1px;
+        animation: change-color-letter 9s infinite alternate ease-in;
+       }
+       @keyframes change-color-letter {
+        
+            0%{
+                color: V.$Color_chase;
+                scale:0.1;
+            }
+            25%{
+                color: V.$color_sky;
+                scale:1;
+            }
+            45%{
+                color: V.$color_rocky;
+                scale:1;
+            }
+            65%{
+                color: V.$color_marshall;
+                scale:1;
+            }
+            85%{
+                color: V.$color_rabel;
+                scale:1;
+            }
+            100%{
+                color: V.$color_zuma;
+                scale:0.2;
+            }
+       }
+       &__img{
+        width: 250px;
+        animation: img-spin 2s ease-in;
+       }
+       @keyframes img-spin {
+            100%{
+                scaleX: 0;               
+            }
+            0%{
+                scale: 0.1;
+                rotate: 360deg;
+            }             
+       }
+       &__subtitle{
+        color: V.$blue_title;
+       }
+   } 
+}
+
+
+
+//Confeti generator
+@keyframes confetti-slow {
+    0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+    
+    100% { transform: translate3d(25px, 185vh, 0) rotateX(360deg) rotateY(180deg); }
+  }
+  
+  @keyframes confetti-medium {
+    0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+    
+    100% { transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg); }
+  }
+  
+  @keyframes confetti-fast {
+    0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+    
+    100% { transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg); }
+  }
+  
+  .container {
+    margin-top: -150px;
+    width: 220vw;
+    height: 100vh;
+    z-index: 4;
+  }
+  
+  .confetti-container {
+    perspective: 700px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  

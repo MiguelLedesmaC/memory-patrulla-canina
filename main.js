@@ -21,6 +21,12 @@ let rightAudio = new Audio("./sounds/right.wav");
 let mostrarMovimientos = document.getElementById("movimientos");
 let mostrarAciertos = document.getElementById("aciertos");
 let mostrarTiempo = document.getElementById("t-restante");
+let buttons = document.querySelectorAll('button')
+
+let buttonsSelected = [];
+buttons.forEach(element => {
+  buttonsSelected.push(element.id);
+})
 
 //generacion numeros aleatorios
 let numeros = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
@@ -28,7 +34,6 @@ numeros = numeros.sort(() => {
   return Math.random() - 0.5;
 });
 console.log(numeros);
-
 //funciones
 function contarTiempo() {
   tiempoRegresivo = setInterval(() => {
@@ -64,8 +69,11 @@ function destapar(id) {
     destapaAudio.play();
     //mostrar primer numero
     tarjeta1 = document.getElementById(id);
+    console.log(tarjeta1);
     primerResultado = numeros[id];
     tarjeta1.innerHTML = `<img src ="./images/${primerResultado}.png" alt = "">`;
+    tarjeta1.classList.add('loop-card');
+    
     //desabilitar primer boton
     tarjeta1.disabled = true;
   } else if (tarjetasDestapadas == 2) {
@@ -73,12 +81,20 @@ function destapar(id) {
     tarjeta2 = document.getElementById(id);
     segundoResultado = numeros[id];
     tarjeta2.innerHTML = `<img src ="./images/${segundoResultado}.png" alt = "">`;
+    tarjeta2.classList.add('loop-card');
     //desabilitar segundo boton
     tarjeta2.disabled = true;
 
     //incrementar movimientos
     movimientos++;
     mostrarMovimientos.innerHTML = `Movimientos ${movimientos}`;
+    if(segundoResultado != primerResultado){      
+      tarjeta1.classList.remove('loop-card');
+      tarjeta2.classList.remove('loop-card');
+      console.log(tarjeta2.classList);
+      console.log(tarjeta1.classList);
+
+    }
     if (primerResultado == segundoResultado) {
       rightAudio.play();
       //encerar tarjetas destapadas
@@ -87,12 +103,13 @@ function destapar(id) {
       //aumentar aciertos
       aciertos++;
       mostrarAciertos.innerHTML = `Aciertos : ${aciertos}`;
+
+      //Modal Ganador
+      let winGame = document.querySelector('.finish')
+      console.log(winGame.style.display);
       if (aciertos == 8) {
-        mostrarAciertos.innerHTML = `Aciertos : ${aciertos} 🎉🎉`;
-        mostrarTiempo.innerHTML = `Fantastico solo has tardado :${
-          timerInicial - timer
-        } segundos!!`;
-        mostrarMovimientos.innerHTML = `Movimientos ${movimientos} 😎😎`;
+        winGame.style.display = 'block';
+        
       }
     } else {
       //mostrar momentaneamente valores y volver a tapar

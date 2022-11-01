@@ -1,0 +1,60 @@
+@use 'variables' as V;
+.section1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    &__title {
+            display: flex;
+            flex-direction: column;
+            margin-top: -10px;
+            height: 55px;
+            display: flex;
+            font-size: 1.5em;
+            text-align: center;
+            animation: text-pop-up 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            margin-bottom: 50px;
+            color: V.$blue_title;
+            text-shadow: 1px 2px 1px white;  
+            letter-spacing: 1px;       
+            @keyframes text-pop-up {
+                0% {
+                  transform: translateY(0px) ;
+                  transform-origin: 50% 50%;
+                  text-shadow: none;
+                }
+                100% {
+                  transform: translateY(30px);
+                  transform-origin: 50% 50%;
+                }
+              }
+              #chase{
+                color: V.$Color_chase;
+                text-shadow: 1px 2px 1px #5B3B08; 
+              }
+              #sky{
+                color: V.$color_sky;
+                text-shadow: 1px 2px 1px #FFA94A;
+              } 
+              #rocky{
+                color: V.$color_rocky;
+                text-shadow: 1px 2px 1px #5F6879;
+              }
+              #marshall{
+                color: V.$color_marshall;
+                text-shadow: 1px 2px 1px #FFD200;
+              }
+              #rabel{
+                color: V.$color_rabel;
+                text-shadow: 1px 2px 1px #CF6718;
+              }
+              #zuma{
+                color: V.$color_zuma;
+                text-shadow: 1px 2px 1px #013158;
+              }
+    }
+}
+
+ 
+  

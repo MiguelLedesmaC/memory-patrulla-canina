@@ -4,26 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Juego patrulla canina</title>
-    <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
-    <main>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    
+    <main class="main-container">
+        
         <section class = "section1">
-            <h2 class="section1__title">
-                PAW 
-                <div class="color-change">
-                <span id="chase">P</span>
-                <span id="sky">A</span>
-                <span id="rocky">T</span>
-                <span id="marshall">R</span>
-                <span id="rabel">O</span>
-                <span id="zuma">L</span>
-                </div>
-            </h2>
-        <table>
-            <tr>
+            <div class="section__header">
+                <h2 class="section1__title">
+                    PAW 
+                    <div class="color-change">
+                    <span id="chase">P</span>
+                    <span id="sky">A</span>
+                    <span id="rocky">T</span>
+                    <span id="marshall">R</span>
+                    <span id="rabel">O</span>
+                    <span id="zuma">L</span>
+                    </div>
+                </h2>
+            </div>
+
+        <table class="table">
+            <h4 class="table__title">Memory</h4>
+            <tr class="table__first">
                 <td><button id= "0" onclick="destapar(0)"></button></td>
                 <td><button id= "1" onclick="destapar(1)"></button></td>
                 <td><button id= "2" onclick="destapar(2)"></button></td>
@@ -48,12 +55,10 @@
                 <td><button id= "15" onclick="destapar(15)"></button></td>
             </tr>
         </table>
+        
         </section>
-        <section class ="section2">
-            <h2 id= "aciertos" class="estadisticas">Aciertos 0</h2>
-            <h2 id= "t-restante" class="estadisticas">Tiempo && segundos</h2>
-            <h2 id= "movimientos" class="estadisticas">Movimientos</h2>
-        </section>
+        
+
         <section class ="finish">
             <div class="js-container container"></div>  
             <div class="finish__background">
@@ -79,9 +84,7 @@
     <div class="footer">
         <p>Coded By <a href="#">Xcorpio</a> for <a href="">Nahia Ledesma</a></p>
     </div>
-    <script src="./release/confeti.js"></script>
-       
-    </main>
-    <script src="main.js"></script>
+    <script src="memory-patrulla.js"></script>  
+    <script src="confeti.js"></script>
 </body>
 </html>

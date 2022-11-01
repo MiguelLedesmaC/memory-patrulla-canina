@@ -1,0 +1,41 @@
+@use 'variables' as V;
+@use 'section1';
+@use 'table';
+@use 'modal-thanks';
+@use 'confetti';
+*{
+  box-sizing: border-box;
+}
+body {
+    font-family: 'Font-Paw-Patrol'; 
+}
+.main-container {
+    width: 420px;
+    margin: 0 auto;
+    background-image: url('../../images/fondo/fondo2.png');
+    background-size: cover;
+    background-position-x: -10px;
+    height: 700px;
+    background-repeat: no-repeat; 
+}
+.confetti {
+    position: absolute;
+    z-index: 1;
+    border-radius: 10%;
+    &--animation-slow {
+      animation: confetti-slow 2.25s linear 1 forwards;
+    }
+    
+    &--animation-medium {
+      animation: confetti-medium 1.75s linear 1 forwards;
+    }
+    
+    &--animation-fast {
+      animation: confetti-fast 1.25s linear 1 forwards;
+    }
+  }
+.footer {
+width: 100%;
+display: flex;
+justify-content: center;
+}

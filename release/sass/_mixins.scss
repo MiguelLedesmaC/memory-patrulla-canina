@@ -1,0 +1,14 @@
+@use  'variables' as V;
+
+@mixin card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin-top: 120px;
+    padding-top: 35px;
+    width: 60%;
+    background-color: V.$Blue-gradiant;
+    border-radius: 15px;
+}
