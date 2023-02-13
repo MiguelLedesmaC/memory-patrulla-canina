@@ -8,6 +8,7 @@
 }
 
 body{
+    
     background-image: url("images/fondo/fondo2.png");
     background-color: rgb(7, 152, 209);
     background-repeat:  no-repeat;
@@ -32,14 +33,13 @@ main{
     flex-direction: row;
     gap: 20px;
     margin-top: -60px;
-    height: 45px;
+    height: 55px;
     font-size: 2.5em;
-    background-image: url('images/Escudo_patrol-logo.png');
     background-repeat: no-repeat;
     background-size: contain;  
     background-color: hsl(197, 69%, 83%);
     width: 100%;
-    height: 70px;
+    height: 120px;
     border-radius: 20px 20px 0 0;
     text-align: center;
     animation: text-pop-up 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -47,9 +47,6 @@ main{
     color: purple;
     text-shadow: 1px 2px 1px black;  
     letter-spacing: 1px;
-    
-         
-    
 }
 .section1__title #chase {
     color: hsl(230deg, 64%, 21%);
@@ -74,7 +71,8 @@ main{
   .section1__title #zuma {
     color: hsl(26deg, 79%, 45%);
     text-shadow: 1px 2px 1px #013158;
-  }
+}
+
 @keyframes text-pop-up {
     0% {
       transform: translateY(0px) ;
@@ -86,6 +84,21 @@ main{
       transform-origin: 50% 50%;
     }
   }
+  #logo_nahia_title {
+      position: absolute;
+      top: -20px;
+      left: 80px;
+      width: 250px;
+      height: 180px;
+      background-size: contain;
+    }
+
+#logo_nahia {
+  position: absolute;
+  top: 18rem;
+  left: 3rem;
+  width: 600px;
+}
 button{
     height: 100px;
     width: 100px;
@@ -111,16 +124,20 @@ button:hover{
     padding: 8px 20px;
     box-sizing: border-box;
 }
-footer{
+.footer{
     text-align: center;
 }
 a{
     text-decoration: none;
-}
-img{
-    width: 55%;
+    color: lightpink;
 }
 
+.imagen_girada, .imagen_girada2 {
+  width: 72px;
+}
+.rubble {
+  width: 100px;
+}
 .loop-card {
     animation: loop-card 0.5s linear both;
   }
@@ -284,4 +301,3 @@ img{
   .confetti--animation-fast {
     animation: confetti-fast 1.25s linear 1 forwards;
   }
-  

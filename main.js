@@ -50,7 +50,7 @@ function contarTiempo() {
 function bloquearTarjetas() {
   for (let i = 0; i <= 15; i++) {
     let tarjetaBloqueada = document.getElementById(i);
-    tarjetaBloqueada.innerHTML = `<img src ="./images/${numeros[i]}.png" alt = "">`;
+    tarjetaBloqueada.innerHTML = `<img class="imagen_destapada" src="./images/${numeros[i]}.png" alt="imagen patrulla">`;
     tarjetaBloqueada.disabled = true;
   }
 }
@@ -71,7 +71,10 @@ function destapar(id) {
     tarjeta1 = document.getElementById(id);
     console.log(tarjeta1);
     primerResultado = numeros[id];
-    tarjeta1.innerHTML = `<img src ="./images/${primerResultado}.png" alt = "">`;
+    tarjeta1.innerHTML = `<img class="imagen_girada" src="./images/${primerResultado}.png" alt = "imagen patrulla">`;
+    if(primerResultado == 5 || primerResultado == 8) {
+      tarjeta1.innerHTML = `<img class="imagen_girada rubble" src="./images/${primerResultado}.png" alt = "imagen patrulla">`;
+    }
     tarjeta1.classList.add('loop-card');
     
     //desabilitar primer boton
@@ -80,7 +83,11 @@ function destapar(id) {
     //mostrar segundo numero
     tarjeta2 = document.getElementById(id);
     segundoResultado = numeros[id];
-    tarjeta2.innerHTML = `<img src ="./images/${segundoResultado}.png" alt = "">`;
+    
+    tarjeta2.innerHTML = `<img class="imagen_girada2" src="./images/${segundoResultado}.png" alt="imagen patrulla">`;
+    if(segundoResultado == 5 || segundoResultado == 8) {
+      tarjeta2.innerHTML = `<img class="imagen_girada2 rubble" src="./images/${segundoResultado}.png" alt="imagen patrulla">`;
+    }
     tarjeta2.classList.add('loop-card');
     //desabilitar segundo boton
     tarjeta2.disabled = true;
