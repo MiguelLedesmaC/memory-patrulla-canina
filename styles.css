@@ -118,11 +118,18 @@ button:hover{
     padding: 0 20px;
 }
 .estadisticas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border: 4px solid white;
     height: 100px;
     border-radius: 8px;
     padding: 8px 20px;
     box-sizing: border-box;
+}
+.stat {
+
 }
 .footer{
     text-align: center;

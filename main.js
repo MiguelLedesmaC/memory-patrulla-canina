@@ -38,7 +38,7 @@ console.log(numeros);
 function contarTiempo() {
   tiempoRegresivo = setInterval(() => {
     timer--;
-    mostrarTiempo.innerHTML = `Tiempo ${timer} segundos`;
+    mostrarTiempo.innerHTML = `Tiempo : <span class="stat">${timer}</span>  segundos`;
     if (timer == 0) {
       clearInterval(tiempoRegresivo);
       mostrarTiempo.innerHTML = `Tiempo terminado`;
@@ -94,7 +94,7 @@ function destapar(id) {
 
     //incrementar movimientos
     movimientos++;
-    mostrarMovimientos.innerHTML = `Movimientos ${movimientos}`;
+    mostrarMovimientos.innerHTML = `Movimientos : <span class="stat">${movimientos}</span> `;
     if(segundoResultado != primerResultado){      
       tarjeta1.classList.remove('loop-card');
       tarjeta2.classList.remove('loop-card');
@@ -109,7 +109,7 @@ function destapar(id) {
 
       //aumentar aciertos
       aciertos++;
-      mostrarAciertos.innerHTML = `Aciertos : ${aciertos}`;
+      mostrarAciertos.innerHTML = `Aciertos : <span class="stat">${aciertos}</span> `;
 
       //Modal Ganador
       let winGame = document.querySelector('.finish')
