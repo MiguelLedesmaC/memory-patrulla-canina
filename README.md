@@ -1,23 +1,19 @@
-# memory-patrulla-canina
+## Memory Patrulla Canina
 
 ## Descripcion
 
-loren ipu..s.df.
+lorem
 
 ## Autor 
-**Nombre**
+**Miguel Ledesma**
 
 *[LinkedIn](https://www.linkedin.com/in/miguelledesmac)
-*[Behance](https://www.behance.net/midominio)
-*[Portofolio](https://midominio.es)
 
 ## Ver ejemplo en vivo
--[ENLACEGITHUBPAGES](ENLACEGITHUBPAGES)
+-[Demo](https://miguelledesmac.github.io/memory-patrulla-canina/)
 
-##Instalacion
-Este proyecto no necesita instalacion. simplemente abre la carpeta o haz doble click en el .html
+## Instalacion
+Este proyecto no necesita instalacion. simplemente abre la carpeta o haz doble click en la demo
 
 ## Contacto
-Contacta conmigo a través de mi *[mailto="(angelmiguellc35@gmail.com)"]
-
-https://miguelledesmac.github.io/memory-patrulla-canina/
+Puedes contactar conmigo a través de mi correo angelmiguellc35@gmail.com
