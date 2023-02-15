@@ -7,9 +7,14 @@ let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
 let temporizador = false;
-let timer = 3800000;
-let timerInicial = 30;
 let tiempoRegresivo = null;
+
+let minutos = 10;
+let minutosIniciales = 10;
+let segundos = 00;
+let segundosIniciales = 59;
+
+
 
 //audio
 let inicioAudio = new Audio("./sounds/inicio.mp3");
@@ -28,23 +33,30 @@ buttons.forEach(element => {
   buttonsSelected.push(element.id);
 })
 
+
+// inicioAudio.play();
 //generacion numeros aleatorios
 let numeros = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 numeros = numeros.sort(() => {
   return Math.random() - 0.5;
 });
-console.log(numeros);
+// console.log(numeros);
 //funciones
+
 function contarTiempo() {
   tiempoRegresivo = setInterval(() => {
-    timer--;
-    mostrarTiempo.innerHTML = `Tiempo : <span class="stat">${timer}</span>  segundos`;
-    if (timer == 0) {
+    if(minutos == 0 && segundos == 0){
       clearInterval(tiempoRegresivo);
-      mostrarTiempo.innerHTML = `Tiempo terminado`;
       bloquearTarjetas();
+    }else if(segundos == 0){
+      minutos--;
+      segundos = 59
+    }else{
+      segundos--;
     }
+    mostrarTiempo.innerHTML = `Tiempo <span class="stats__stat">${minutos}:${segundos < 10 ?'0' + segundos:segundos} </span>`;
   }, 1000);
+  
 }
 
 function bloquearTarjetas() {
@@ -55,7 +67,7 @@ function bloquearTarjetas() {
   }
 }
 
-//inicioAudio.play();
+
 //funcion principal
 function destapar(id) {
   tarjetasDestapadas++;
@@ -69,11 +81,10 @@ function destapar(id) {
     destapaAudio.play();
     //mostrar primer numero
     tarjeta1 = document.getElementById(id);
-    console.log(tarjeta1);
     primerResultado = numeros[id];
     tarjeta1.innerHTML = `<img class="imagen_girada" src="./images/${primerResultado}.png" alt = "imagen patrulla">`;
-    if(primerResultado == 5 || primerResultado == 8) {
-      tarjeta1.innerHTML = `<img class="imagen_girada rubble" src="./images/${primerResultado}.png" alt = "imagen patrulla">`;
+    if(primerResultado == 5 || primerResultado == 8 || primerResultado == 1) {
+      tarjeta1.innerHTML = `<img class="imagen_girada equal_size" src="./images/${primerResultado}.png" alt = "imagen patrulla">`;
     }
     tarjeta1.classList.add('loop-card');
     
@@ -85,8 +96,8 @@ function destapar(id) {
     segundoResultado = numeros[id];
     
     tarjeta2.innerHTML = `<img class="imagen_girada2" src="./images/${segundoResultado}.png" alt="imagen patrulla">`;
-    if(segundoResultado == 5 || segundoResultado == 8) {
-      tarjeta2.innerHTML = `<img class="imagen_girada2 rubble" src="./images/${segundoResultado}.png" alt="imagen patrulla">`;
+    if(segundoResultado == 5 || segundoResultado == 8 || segundoResultado == 1) {
+      tarjeta2.innerHTML = `<img class="imagen_girada2 equal_size" src="./images/${segundoResultado}.png" alt="imagen patrulla">`;
     }
     tarjeta2.classList.add('loop-card');
     //desabilitar segundo boton
@@ -94,13 +105,10 @@ function destapar(id) {
 
     //incrementar movimientos
     movimientos++;
-    mostrarMovimientos.innerHTML = `Movimientos : <span class="stat">${movimientos}</span> `;
+    mostrarMovimientos.innerHTML = `Movimientos  <span class="stats__aciertos__span">${movimientos}</span> `;
     if(segundoResultado != primerResultado){      
       tarjeta1.classList.remove('loop-card');
       tarjeta2.classList.remove('loop-card');
-      console.log(tarjeta2.classList);
-      console.log(tarjeta1.classList);
-
     }
     if (primerResultado == segundoResultado) {
       rightAudio.play();
@@ -109,13 +117,37 @@ function destapar(id) {
 
       //aumentar aciertos
       aciertos++;
-      mostrarAciertos.innerHTML = `Aciertos : <span class="stat">${aciertos}</span> `;
+      mostrarAciertos.innerHTML = `Aciertos <span class="stats__aciertos__span" >${aciertos}</span> `;
 
       //Modal Ganador
       let winGame = document.querySelector('.finish')
       console.log(winGame.style.display);
       if (aciertos == 8) {
+        clearInterval(tiempoRegresivo)
+        mostrarTiempo.innerHTML = `Logrado en:  <span class="stats__stat">${(minutosIniciales - minutos - 1)}:${segundosIniciales - segundos + 1 } </span>`;
         winGame.style.display = 'block';
+
+        // Confetti
+        var duration = 15 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+
+        var interval = setInterval(function() {
+          var timeLeft = animationEnd - Date.now();
+
+          if (timeLeft <= 0) {
+            return clearInterval(interval);
+          }
+
+          var particleCount = 50 * (timeLeft / duration);
+          // since particles fall down, start a bit higher than random
+          confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+          confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+        }, 250);
         
       }
     } else {
@@ -130,3 +162,16 @@ function destapar(id) {
     }
   }
 }
+
+// instalamos la extension de confetti con npm 
+//cuando se hace click en button, recorremos un numero de veces aleatorio y sacamos confetti
+// document.querySelector("#triggerConfetti").addEventListener("click", ()=> {
+//   for (let index = 0; index < (Math.floor(Math.random() * 10) + 1) ; index++) {
+//     confetti({
+//       origin:{
+//         x:Math.random() - 0.1,
+//         y:Math.random() - 0.1,
+//       }
+//     })
+//   }
+// })
