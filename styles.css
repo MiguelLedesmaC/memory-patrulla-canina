@@ -16,6 +16,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  background-color: #284d75;
+}
 body {
   font-family: "Font Paw Patrol";
 }
@@ -230,9 +233,13 @@ button:hover{
   font-size: 4em;
   color: hsl(201deg, 100%, 30%);
 }
-
-
-
+footer p {
+  text-align: center;
+  color: white;
+}
+footer a {
+  color: hsl(53deg, 100%, 49%);
+}
 
 
 
