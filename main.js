@@ -162,7 +162,7 @@ function destapar(id) {
   }
 }
 
-// instalamos la extension de confetti con npm 
+// extension de confetti
 //cuando se hace click en button, recorremos un numero de veces aleatorio y sacamos confetti
 // document.querySelector("#triggerConfetti").addEventListener("click", ()=> {
 //   for (let index = 0; index < (Math.floor(Math.random() * 10) + 1) ; index++) {
