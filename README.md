@@ -2,7 +2,8 @@
 
 ## Descripcion
 
-lorem
+Cree un juego para mi hija de unos dibujos que la gustaban mucho.
+Utilice html css y javascript tambien utilize una biblioteca externa para tirar confeti cuando se gana la partida.
 
 ## Autor 
 **Miguel Ledesma**
