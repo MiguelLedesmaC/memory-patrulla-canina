@@ -120,8 +120,7 @@ function destapar(id) {
       mostrarAciertos.innerHTML = `Aciertos <span class="stats__aciertos__span" >${aciertos}</span> `;
 
       //Modal Ganador
-      let winGame = document.querySelector('.finish')
-      console.log(winGame.style.display);
+      let winGame = document.querySelector('.finish');
       if (aciertos == 8) {
         clearInterval(tiempoRegresivo)
         mostrarTiempo.innerHTML = `Logrado en:  <span class="stats__stat">${(minutosIniciales - minutos - 1)}:${segundosIniciales - segundos + 1 } </span>`;
